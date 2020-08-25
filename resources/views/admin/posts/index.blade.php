@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 @section('content')
-    <h1> Post</h1>
+    @if(Session::has('post_deleted'))
+        <p class="bg-danger">{{session('post_deleted')}}</p>
+        @endif
+    <h1>Post</h1>
 
      <table class="table table-hover">
          <thead>
@@ -21,11 +24,10 @@
                  <tr>
                      <td>{{$post->id}}</td>
                      <td><img height="50" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}" alt=""></td>
-                     <td>{{$post->user->name}}</td>
+                     <td><a href="{{route('admin.posts.edit',$post->id)}}">{{$post->user->name}}</a></td>
                      <td>{{$post->category_id}}</td>
-
                      <td>{{$post->title}}</td>
-                     <td>{{$post->body}}</td>
+                     <td>{{str_limit($post->body,30)}}</td>
                      <td>{{$post->created_at->diffForHumans()}}</td>
                      <td>{{$post->updated_at->diffForHumans()}}</td>
                      <td></td>

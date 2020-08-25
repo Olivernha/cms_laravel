@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class PostsCreateRequest extends Request
+class PostsEditRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

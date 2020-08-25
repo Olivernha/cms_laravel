@@ -38,15 +38,12 @@
     </div>
 
         {!! Form::close() !!}
-        {!! Form::open(['method' =>'DELETE','action'=>['AdminUsersController@destroy',$user->id]]) !!}
-        <div class="form-group">
-            {!! Form::submit('Delete User',['class'=>'btn btn-danger col-sm-offset-8']) !!}
+            {!! Form::open(['method' =>'DELETE','action'=>['AdminUsersController@destroy',$user->id]]) !!}
+            <div class="form-group">
+                {!! Form::submit('Delete User',['class'=>'btn btn-danger col-sm-offset-8']) !!}
 
-        </div>
-
-
-
-    {!! Form::close() !!}
+            </div>
+            {!! Form::close() !!}
 
     <div class="row">
         @include('includes.form_error')
