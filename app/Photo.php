@@ -12,4 +12,7 @@ class Photo extends Model
     public function getFileAttribute($photo){
         return $this->uploads . $photo;
     }
+    public function photoPlaceholder(){
+        return "http://placehold.it/200x700";
+    }
 }
