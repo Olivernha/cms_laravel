@@ -11,18 +11,18 @@
 |
 */
 Auth::routes();
-Route::get('/logout', 'Auth\LoginController@logout');
-Route::get('/','HomeController@index');
+Route::get('logout', 'Auth\LoginController@logout');
+Route::get('','HomeController@index');
 Route::group(['middleware'=>'admin'],function (){
 
-   Route::get('/admin','AdminController@index');
+   Route::get('admin','AdminController@index');
     Route::resource('admin/users','AdminUsersController',['names'=>[
         'index'=>'admin.users.index',
         'create'=>'admin.users.create',
         'store'=>'admin.users.store',
         'edit'=>'admin.users.edit'
     ]]);
-    Route::get('/post/{id}',['as'=>'home.post','uses'=>'HomeController@post']);
+    Route::get('post/{id}',['as'=>'home.post','uses'=>'HomeController@post']);
     Route::resource('admin/posts','AdminPostsController',['names'=>[
         'index'=>'admin.posts.index',
         'create'=>'admin.posts.create',
